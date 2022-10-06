@@ -1,0 +1,176 @@
+main {
+    margin-left: 5rem;
+    padding: 0;
+    background-color: var(--bg-main);
+}
+
+.ERROR {
+    background-color: orangered;    
+}
+
+.OK {
+    background-color: yellowgreen;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact > * {
+        margin-bottom: 1rem;
+    }
+    
+#contact  h1 {
+        text-align: center;
+}
+
+#contact fieldset {
+    width: min-content;
+	border-radius: 1.5rem;
+}
+
+#contact fieldset legend {
+    text-align: center;
+}
+
+#contact fieldset form {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact fieldset form .field {
+    z-index: 0;
+    width: 100%;
+    position: relative;
+    border-bottom: 2px dashed var(--text-secondary);
+    margin: 1.5rem auto;
+    transition: 500ms;
+}
+
+#contact fieldset form .field .label {
+    display: block;
+    color:var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+#contact fieldset form .field .input {
+    outline: none;
+    border: none;
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+    padding: 0.25rem 0;
+    background: transparent;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: border 500ms;
+}
+
+#contact fieldset form .field .input:invalid {
+    		color: orangered;
+}
+
+/* Border animation */
+#contact fieldset form .field::after {
+    content: "";
+    position: relative;
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: var(--accent-primary);
+    transform: scaleX(0);
+    transform-origin: 0%;
+    opacity: 0;
+    transition: all 500ms ease;
+    top: 2px;
+}
+
+#contact fieldset form .field:focus-within {
+    border-color: transparent;
+}
+
+#contact fieldset form .field:focus-within::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* Label animation */
+#contact fieldset form .field .label {
+    z-index:-1;
+    position: absolute;
+    top:0.25rem;
+    transform-origin: 0%;
+    transition: transform 400ms;
+}
+
+#contact fieldset form .field:focus-within .label,
+#contact fieldset form .input:not(:placeholder-shown) + .label{
+    transform: scale(0.8) translateY(-2rem);
+    opacity: 1;
+}
+
+.media-links {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.media-links a {
+    display: grid;
+    place-items: center;
+    background-color: var(--bg-secondary);
+    border-radius: 50%;
+    box-shadow: 0 5px 4px rgba(0,0,0,.5);
+    transition: 400ms ease-in-out;
+}
+
+.media-links a:hover {
+    transform: translateY(-0.5rem);
+}
+
+.media-links a:hover > * {
+    filter: grayscale(0)
+}
+
+#github:hover {
+    color: #5e045f;
+}
+
+
+#github{
+    color: gray
+}
+
+svg {
+    box-sizing: border-box;
+    margin: 1rem;
+    width: 3rem;
+    height: 3rem;
+    transition: 400ms ease-in-out;
+    filter: grayscale(100%);    
+}
+
+#facebook {
+	color: #4267B2;
+}
+
+#instagram {
+    color: #e4405f;
+}
+
+#linkedin {
+    color: #2867B2;
+}
+
+/* Small screens */
+@media only screen and (max-width: 599px) {
+    main {
+        margin: 0;
+    }
+}

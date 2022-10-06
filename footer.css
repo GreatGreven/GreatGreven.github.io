@@ -1,0 +1,29 @@
+#footer {
+    height: auto;
+    margin-left: 5rem;
+    background-color: var(--bg-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#footer span {
+    width: 100vw;
+    text-align: center;
+}
+
+#footer svg {
+    min-width: 2rem;
+    max-width: 2rem;
+    margin: 0 0.5rem;
+}
+
+
+/* Small screens */
+@media only screen and (max-width: 599px) {
+    #footer {
+        margin-left: 0;
+        margin-bottom: 5rem;
+    }
+}

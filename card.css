@@ -1,0 +1,69 @@
+.card {
+    margin: 1rem;
+    border: 1px inset black;
+    background-color: var(--bg-primary);
+    border-radius: 2rem;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+}
+
+.card .face {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease-out;
+    filter: opacity(0);
+}
+
+.card  .face:first-child {
+    filter: opacity(0.5);
+    visibility: visible;
+    display: block;
+    padding-left: 2rem;
+    transition: all var(--transition-speed) ease;
+
+}
+
+.card:hover .face {
+    max-height: 500px;
+    visibility: visible;
+    filter: opacity(1);
+}
+
+/* .hidden > :last-child{
+    display: none;
+} */
+
+.show {
+    display: block;
+}
+
+.card  a {
+    align-self:flex-end;
+    font-weight:500;
+    text-decoration: none;
+    color: var(--text-primary);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.3), 
+    5px 5px 10px rgba(0,0,0,0.3);
+}
+
+.card  a:hover {
+    box-shadow: inset 0.3rem 0.3rem 0.5rem rgba(0,0,0,0.3),
+   		inset -0.3rem -0.3rem 0.5rem rgba(255,255,255,0.3);
+}
+
+.card blockquote {
+    overflow-wrap: anywhere;
+}

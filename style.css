@@ -1,0 +1,127 @@
+:root {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --bg-main: #464545;
+    --accent-primary: #FF7eee;
+    --accent-secondary: #df49a6;
+    --transition-speed: 600ms;
+}
+
+.dark {
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --bg-main: #464545;
+    --accent-primary: #FF7eee;
+    --accent-secondary: #df49a6;
+}
+
+.light {
+    --text-primary: #1f1f1f;
+    --text-secondary: #000000;
+    --bg-primary: #ffffff;
+    --bg-secondary: #e4e4e4;
+    --bg-main: #FAFAFA;
+    --accent-primary: #FF7eee;
+    --accent-secondary: #df49a6;
+}
+
+.solar {
+    --text-primary: #576e75;
+    --text-secondary: #35535c;
+    --bg-primary: #fdf6e3;
+    --bg-secondary: #f5e5b8;
+    --bg-main: #FFFFFFFF;
+    --accent-primary: #FF7eee;
+    --accent-secondary: #df49a6;
+}
+
+.fa-primary {
+    color: var(--accent-primary);
+}
+
+.fa-secondary {
+    color: var(--accent-secondary);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+p,
+li {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+hr {
+    overflow: visible;
+    /* For IE */
+    border: none;
+}
+
+hr::after {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-bottom: -2rem;
+    border-style: solid;
+    border-color: var(--text-secondary);
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+hr::before {
+    /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -2rem;
+    border-style: solid;
+    border-color: var(--text-secondary);
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+.button,
+button {
+    z-index: 0;
+    position: relative;
+    font-size: 1.5rem;
+    margin: 1.5rem auto;
+    padding: 0.5rem 2rem;
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    background: var(--bg-main);
+    border-radius: 0.5rem;
+}
+
+.button:hover,
+button:hover {
+    color: var(--bg-main);
+    background: var(--accent-primary);
+}
+
+.button:disabled,
+button:disabled {
+    filter: grayscale(100%);
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
