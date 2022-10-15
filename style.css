@@ -27,8 +27,8 @@
     --bg-primary: #ffffff;
     --bg-secondary: #e4e4e4;
     --bg-main: #FAFAFA;
-    --accent-primary: #FF7eee;
-    --accent-secondary: #df49a6;
+    --accent-primary: #7ec3ff;
+    --accent-secondary: #4980df;
 }
 
 .solar {
@@ -37,8 +37,8 @@
     --bg-primary: #fdf6e3;
     --bg-secondary: #f5e5b8;
     --bg-main: #FFFFFFFF;
-    --accent-primary: #FF7eee;
-    --accent-secondary: #df49a6;
+    --accent-primary: #4af0ab;
+    --accent-secondary: #40bf8c;
 }
 
 .fa-primary {
@@ -65,7 +65,8 @@ h1 {
 }
 
 p,
-li {
+li,
+h3 {
     font-size: 1.5rem;
     margin: 1rem;
 }

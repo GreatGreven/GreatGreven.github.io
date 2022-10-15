@@ -36,11 +36,6 @@
     background: var(--bg-secondary);
 }
 
-/*.link-text {
-    display: none;
-    visibility: hidden;
-} */
-
 .nav-item svg {
     min-width: 2rem;
     max-width: 2rem;

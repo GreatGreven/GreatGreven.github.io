@@ -189,6 +189,37 @@ button:focus::after{
     align-items: center;
 }
 
+#cv h3 {
+    display: inline;
+}
+
+#cv svg {
+    transform: translateY(20%);
+    max-width: 1.5rem;
+    transform: rotate(90deg);
+    transition: transform var(--transition-speed);
+}
+
+#cv .closed svg {
+    transform: rotate(0deg);
+}
+
+#cv article > :not(div.articleTitle) {
+    height: 100%;
+    transform: translateX(0%);
+    visibility: visible;
+    filter: opacity(1);
+    transition: all 300ms ease-out;
+}
+
+#cv article.closed > :not(div.articleTitle) {
+    max-height:0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    filter: opacity(0);
+    transition-duration: 0ms;
+}
+
 /* Portfolio section */
 
 #portfolio > h1 {
@@ -349,7 +380,7 @@ button:focus::after{
     color: gray
 }
 
-svg {
+#contact svg {
     box-sizing: border-box;
     margin: 1rem;
     width: 3rem;
