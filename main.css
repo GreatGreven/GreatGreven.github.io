@@ -220,6 +220,36 @@ button:focus::after{
     transition-duration: 0ms;
 }
 
+.level-bars > h4 {
+    margin-bottom: auto;
+}
+
+.level-bar {
+    
+    position: relative;
+    border: 2px solid var(--text-secondary);
+    border-radius: 20px;
+}
+
+[data-skill-level] {
+    position: relative;
+    height: 1,5rem;
+    border-radius: 10px;
+    background-color: var(--accent-secondary);
+}
+
+[data-skill-level]::after {
+    position: relative;
+    display: inline-block;
+    content: attr(data-skill-level);
+    top: -5%;
+    right: 0.5rem;
+    width: 100%;
+    text-align: right;
+    color: var(--bg-main);
+    font-weight: bold;
+}
+
 /* Portfolio section */
 
 #portfolio > h1 {

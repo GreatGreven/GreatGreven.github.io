@@ -26,3 +26,12 @@ for (let i = 0; i < articleTitles.length; i++) {
   }, false)
 }
 
+let skillBars = document.querySelectorAll('div.level-bar')
+for (let i = 0; i < skillBars.length; i++) {
+  let firstChild = skillBars[i].children[0]
+  let skillLevel = firstChild.getAttribute('data-skill-level')
+  let color = firstChild.getAttribute('data-bar-color')
+  firstChild.style.width = skillLevel
+  firstChild.style.backgroundColor = color
+}
+
