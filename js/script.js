@@ -35,3 +35,20 @@ for (let i = 0; i < skillBars.length; i++) {
   firstChild.style.backgroundColor = color
 }
 
+window.addEventListener("load", () => {
+  
+  preloader = document.getElementById("preloader")
+  setTimeout(() => {
+    fadeEffect = setInterval(() => {
+      if (!preloader.style.opacity) {
+        preloader.style.opacity = 1
+      }
+      if (preloader.style.opacity > 0) {
+        preloader.style.opacity -= 0.01
+      } else {
+        clearInterval(fadeEffect)
+      } 
+    }, 10)
+  }, 1000)
+})
+
