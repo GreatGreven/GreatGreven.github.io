@@ -47,6 +47,7 @@ window.addEventListener("load", () => {
         preloader.style.opacity -= 0.01
       } else {
         clearInterval(fadeEffect)
+        preloader.style.display = "none"
       } 
     }, 10)
   }, 1000)
