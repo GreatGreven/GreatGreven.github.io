@@ -19,6 +19,7 @@
     --bg-main: #464545;
     --accent-primary: #FF7eee;
     --accent-secondary: #df49a6;
+    --bg-image: url("../images/bg-dark.jpg")
 }
 
 .light {
@@ -29,6 +30,7 @@
     --bg-main: #FAFAFA;
     --accent-primary: #7ec3ff;
     --accent-secondary: #4980df;
+    --bg-image: url("../images/bg-ice.jpg")
 }
 
 .solar {
@@ -39,6 +41,7 @@
     --bg-main: #FFFFFFFF;
     --accent-primary: #4af0ab;
     --accent-secondary: #40bf8c;
+    --bg-image: url("../images/bg-solar.jpg")
 }
 
 .fa-primary {
@@ -53,7 +56,11 @@ body {
     margin: 0;
     padding: 0;
     color: var(--text-primary);
-    background-color: var(--bg-main);
+    /* background-color: var(--bg-main); */
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
