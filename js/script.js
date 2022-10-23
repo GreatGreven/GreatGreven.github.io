@@ -36,7 +36,6 @@ for (let i = 0; i < skillBars.length; i++) {
 }
 
 window.addEventListener("load", () => {
-  
   preloader = document.getElementById("preloader")
   setTimeout(() => {
     fadeEffect = setInterval(() => {
@@ -51,5 +50,39 @@ window.addEventListener("load", () => {
       } 
     }, 10)
   }, 1000)
+  
+  fetch('https://api.github.com/users/greatgreven/repos')
+  .then(res => res.json())
+  .then(data => {
+    portfolio = document.getElementById("portfolio")
+    data.map((repo, i) => {
+      title = document.createElement('h3')
+      titleText = document.createTextNode(repo.name)
+      title.appendChild(titleText)
+
+      repoLink = document.createElement('a')
+      linkText = document.createTextNode("Read more")
+      repoLink.appendChild(linkText)
+      repoLink.href = repo.link
+      repoLink.target = '_blank'
+      repoLink.rel = 'noopener noreferrer'
+      
+      card = document.createElement('div')
+      card.className += "card"
+      card.appendChild(title)
+      if (repo.description) {
+        description = document.createElement('blockquote')
+        descriptionText = document.createTextNode(repo.description)
+        description.appendChild(descriptionText)
+        card.appendChild(description)
+      }
+      card.appendChild(repoLink)
+
+      portfolio.appendChild(card)
+
+    })
+  })
 })
+
+
 
