@@ -134,3 +134,7 @@ button:disabled {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.break-word {
+    word-wrap: break-word;
+}

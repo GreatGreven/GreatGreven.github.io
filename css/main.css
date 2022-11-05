@@ -4,6 +4,18 @@ main {
     /* background-color: var(--bg-main); */
 }
 
+main > :not(#home, #contact) {
+    background-color: var(--bg-main);
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    opacity: 0.8;
+}
+
+main > :not(#home, #contact) > :not(h1) {
+    /* display: none; */
+}
+
 /* Home section */
 
 .highlight {
@@ -172,6 +184,12 @@ button:focus::after{
     width: 50%;
 }
 
+@media only screen and (max-width: 599px) {
+    #about div {
+        width: 100%;
+    }
+}
+
 /* CV section */
 
 #cv > h1 {
@@ -179,7 +197,9 @@ button:focus::after{
     width: 100%;
 }
 
-#cv { margin: 1rem;}
+#cv {
+    margin: 1rem;
+}
 
 #cv > .container{
     margin: 1rem;
@@ -198,6 +218,10 @@ button:focus::after{
     max-width: 1.5rem;
     transform: rotate(90deg);
     transition: transform var(--transition-speed);
+}
+
+#cv > article > .articleTitle {
+    cursor: pointer;
 }
 
 #cv .closed svg {
@@ -220,12 +244,59 @@ button:focus::after{
     transition-duration: 0ms;
 }
 
+.timeline > li {
+    list-style-type: "»";
+    text-align: center;
+    font-size: 1rem;
+    margin-right: auto;
+    width: auto;
+}
+
+.timeline > li::before {
+    content: '';
+    position: absolute;
+    /* top: 0.5rem; */
+    left: 1rem;
+    width: 0.5rem;
+    height: 15%;
+    background-color: var(--text-secondary);
+
+}
+
+.timeline > :last-child::after {
+    content: '';
+    position: absolute;
+    border-right: 0.5rem solid var(--text-secondary);
+    border-bottom: 0.5rem solid var(--text-secondary);
+    left: 0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    /* background-color: black; */
+    transform: translateY(-3rem) rotate(45deg);
+}
+
+.timeline > :last-child::before {
+    transform:  translateY(-2rem);
+
+}
+
+.timeline-block h4 {
+    margin: 0;
+}
+
+.level-bars {
+    padding-bottom: 1.5rem;
+}
+
+.closed .level-bars {
+    padding-bottom: 0;
+}
+
 .level-bars > h4 {
     margin-bottom: auto;
 }
 
 .level-bar {
-    
     position: relative;
     border: 2px solid var(--text-secondary);
     border-radius: 20px;
@@ -401,22 +472,21 @@ button:focus::after{
     filter: grayscale(0)
 }
 
-#github:hover {
-    color: #5e045f;
-}
-
-
-#github{
-    color: gray
-}
-
-#contact svg {
+.media-links svg {
     box-sizing: border-box;
     margin: 1rem;
     width: 3rem;
     height: 3rem;
     transition: 400ms ease-in-out;
     filter: grayscale(100%);    
+}
+
+#github:hover {
+    color: #5e045f;
+}
+
+#github{
+    color: gray;
 }
 
 #facebook {
@@ -435,5 +505,10 @@ button:focus::after{
 @media only screen and (max-width: 599px) {
     main {
         margin: 0;
+        margin-bottom: 5rem;
+        height: 100%;
+    }
+    
+    #contact {
     }
 }
