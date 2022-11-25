@@ -122,12 +122,15 @@
 
     <main>
         <section id="home">
-            <div class="titles">
-                <h1>Hello World, I am <span class="highlight">Eric Grevillius</span></h1>
+            <div class="titles" class="hidden">
+                <h1>
+                    Hello World, I am 
+                    <span class="highlight">Eric Grevillius</span>
+                </h1>
                 <hr />
                 <h2>Software Developer</h2>
             </div>
-            <div class="profile">
+            <div class="profile hidden">
                 <img src="images/profile_round_large.png" alt='profile' />
                 <a href='#contact'>
                     <button>
@@ -136,24 +139,28 @@
                 </a>
             </div>
         </section>
-        <section id="about">
+        <section id="about" class='hidden'>
             <h1>About</h1>
             <p>
-                My name is Eric Grevillius, 27 years old and I am a Software developer.
-                I am currently under employment at Imaweb Sweden as a COBOL developer.
-                I am a methodical and analytical problem solver with an eye for detail.
-                As a person I am a quick learner because I love to learn new things.
-                I have a high level of ambition and like the feeling of delivering something of high quality.
-                I am not afraid of hard work with many long hours to bring a project into port.
-                If you're interested in knowing more about me, then get in touch.
+                My name is Eric Grevillius, 27 years old and I am a Software
+                developer. I am currently under employment at Imaweb Sweden as
+                a COBOL and Python developer. I am a methodical and analytical
+                problem solver with an eye for detail. As a person I am a quick
+                learner because I love to learn new things.  I have a high
+                level of ambition and like the feeling of delivering something
+                of high quality. I am not afraid of hard work with many long
+                hours to bring a project into port. If you're interested in
+                knowing more about me, then get in touch.
             </p>
             <div>
                 <p>
-                    I am mostly interested in technology, especially building, disassembling and understanding how both
-                    software and hardware work.
-                    I am passionate about software development.
-                    I am used to working with clients, working as part of a group, but also enjoy working independently.
-                    I am considered a responsible nice guy who is easy to talk to and always gives 100%.
+                    I am mostly interested in technology, especially building,
+                    disassembling and understanding how both software and
+                    hardware work. I am passionate about software development.
+                    I am used to working with clients, working as part of a
+                    group, but also enjoy working independently. I am
+                    considered a responsible nice guy who is easy to talk to
+                    and always gives 100%.
                 </p>
             </div>
             <div>
@@ -161,23 +168,29 @@
                 <ul>
                     <li>Spending time with my family</li>
                     <li class="break-word">Programming/Developing</li>
-                    <li>Skiing</li>
-                    <li>Outdoor activities</li>
                     <li>Basketball</li>
                     <li>Study up on IT and emerging technologies</li>
                     <li>Play Board and Role-playing games</li>
                     <li>Play Video games</li>
+                    <li>Skiing</li>
                     <li>Renovating my house</li>
+                    <li>Outdoor activities</li>
                 </ul>
             </div>
         </section>
-        <section id="cv">
+        <section id="cv" class='hidden'>
             <h1>Curriculum Vitae</h1>
             <article class="closed">
                 <div class="articleTitle">
                     <h3>Skills</h3>
-                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-single-right" role="img"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fad"
+                        data-icon="angle-single-right"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"
                         class="svg-inline--fa fa-angle-single-right fa-w-14 fa-5x">
                         <g class="fa-group">
                             <path fill="currentColor"
@@ -364,12 +377,12 @@
                 </div>
             </article>
         </section>
-        <section id="portfolio">
+        <section id="portfolio" class='hidden'>
             <h1>Portfolio</h1>
         </section>
-        <section id="contact">
+        <section id="contact" class='hidden'>
             <fieldset>
-                <legend>Send me a message</legend>
+                <legend><h1>Send me a message</h1></legend>
                 <div class="feedback status unset"></div>
                 <form>
                     <input type="hidden" name="contact_number" />
@@ -401,7 +414,7 @@
                 </form>
             </fieldset>
             <div class='media-links'>
-                <a href="https://www.facebook.com/eric.grevillius/" target="_blank" rel="noopener noreferrer">
+                <a class='hidden hidden-below' href="https://www.facebook.com/eric.grevillius/" target="_blank" rel="noopener noreferrer">
                     <svg id="facebook" aria-hidden="true" focusable="false" data-prefix="fab"
                         data-icon="facebook-square" class="svg-inline--fa fa-facebook-square fa-w-14" role="img"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -410,7 +423,7 @@
                             class="facebook" />
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/greatgreven/" target="_blank" rel="noopener noreferrer">
+                <a class='hidden hidden-below' href="https://www.instagram.com/greatgreven/" target="_blank" rel="noopener noreferrer">
                     <svg id="instagram" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                         class="svg-inline--fa fa-instagram fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 448 512">
@@ -419,7 +432,7 @@
                             class="instagram" />
                     </svg>
                 </a>
-                <a href="https://github.com/GreatGreven" target="_blank" rel="noopener noreferrer">
+                <a class='hidden hidden-below' href="https://github.com/GreatGreven" target="_blank" rel="noopener noreferrer">
                     <svg id="github" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
                         class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 496 512">
@@ -428,7 +441,7 @@
                             class="github" />
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/eric-grevillius-b2356119a/" target="_blank"
+                <a class='hidden hidden-below' href="https://www.linkedin.com/in/eric-grevillius-b2356119a/" target="_blank"
                     rel="noopener noreferrer">
                     <svg id="linkedin" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin"
                         class="svg-inline--fa fa-linkedin fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"

@@ -39,14 +39,6 @@
     filter: opacity(1);
 }
 
-/* .hidden > :last-child{
-    display: none;
-} */
-
-.show {
-    display: block;
-}
-
 .card  a {
     align-self:flex-end;
     font-weight:500;

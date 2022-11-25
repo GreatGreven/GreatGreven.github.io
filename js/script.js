@@ -14,7 +14,7 @@ bodyClass.add(theme);
 document.getElementById('themeButton').onclick = () => {
   const current = localStorage.getItem('theme');
   const next = themeMap[current];
-  
+
   bodyClass.replace(current, next);
   localStorage.setItem('theme', next);
 }
@@ -47,10 +47,10 @@ window.addEventListener("load", () => {
       } else {
         clearInterval(fadeEffect)
         preloader.style.display = "none"
-      } 
+      }
     }, 10)
   }, 1000)
-  
+
   fetch('https://api.github.com/users/greatgreven/repos')
   .then(res => res.json())
   .then(data => {
@@ -66,7 +66,7 @@ window.addEventListener("load", () => {
       repoLink.href = repo.link
       repoLink.target = '_blank'
       repoLink.rel = 'noopener noreferrer'
-      
+
       card = document.createElement('div')
       card.className += "card"
       card.appendChild(title)
@@ -84,5 +84,17 @@ window.addEventListener("load", () => {
   })
 })
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry)
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show')
+        } else {
+            entry.target.classList.remove('show')
+        }
+    })
+})
 
+const hiddenElements = document.querySelectorAll('.hidden')
+hiddenElements.forEach(element => observer.observe(element))
 
