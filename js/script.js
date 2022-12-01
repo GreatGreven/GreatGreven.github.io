@@ -58,6 +58,7 @@ window.addEventListener("load", () => {
     data.map((repo, i) => {
       title = document.createElement('h3')
       titleText = document.createTextNode(repo.name)
+      title.className += 'break-word'
       title.appendChild(titleText)
 
       repoLink = document.createElement('a')

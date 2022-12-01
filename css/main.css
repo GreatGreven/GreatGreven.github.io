@@ -362,6 +362,7 @@ button:focus::after{
     width: min-content;
     border-radius: 1.5rem;
     border: black 1px solid;
+    opacity: 0.8;
 }
 
 #contact fieldset legend {
@@ -413,7 +414,7 @@ button:focus::after{
 }
 
 #contact fieldset form .field .input:invalid {
-    		color: orangered;
+    color: orangered;
 }
 
 /* Border animation */
@@ -456,7 +457,7 @@ button:focus::after{
 }
 
 .media-links {
-    width: 60%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -480,9 +481,9 @@ button:focus::after{
 
 .media-links svg {
     box-sizing: border-box;
-    margin: 1rem;
-    width: 3rem;
-    height: 3rem;
+    margin: 2vw;
+    width: 10vw;
+    height: 10vw;
     transition: 400ms ease-in-out;
     filter: grayscale(100%);
 }

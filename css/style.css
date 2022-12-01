@@ -78,6 +78,7 @@ h3 {
     margin: 1rem;
 }
 
+
 hr {
     overflow: visible;
     /* For IE */
@@ -173,3 +174,19 @@ code {
     transform: translateX(0);
 }
 
+@media only screen and (max-width: 599px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p, li, h3 {
+        font-size: 1.2rem;
+        margin: 1rem;
+    }
+
+    hr {
+        width: 90%;
+    }
+
+}
