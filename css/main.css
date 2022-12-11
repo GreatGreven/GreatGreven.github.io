@@ -1,7 +1,6 @@
 main {
     margin-left: 5rem;
     padding: 0;
-    /* background-color: var(--bg-main); */
 }
 
 main > :not(#home, #contact) {
@@ -11,10 +10,6 @@ main > :not(#home, #contact) {
     border-radius: 1rem;
     opacity: 0.8;
 }
-
-/* main > :not(#home, #contact) > :not(h1) {
-    /* display: none; */
-/* }
 
 /* Home section */
 
@@ -361,7 +356,7 @@ button:focus::after{
     background-color: var(--bg-main);
     width: min-content;
     border-radius: 1.5rem;
-    border: black 1px solid;
+    border: 0;
     opacity: 0.8;
 }
 
