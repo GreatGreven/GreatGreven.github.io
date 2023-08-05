@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- <meta name="theme-color" content="#000000" /> -->
     <title>Eric Grevillius</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script defer src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/preloader.css" />
@@ -383,17 +384,17 @@
         <section id="contact" class='hidden'>
             <fieldset>
                 <legend><h1>Send me a message</h1></legend>
-                <div class="feedback status unset"></div>
+                <div id="feedback"></div>
                 <form>
                     <input type="hidden" name="contact_number" />
                     <div class="field">
-                        <input type='text' class='input' id='user_name' name='user_name'
+                        <input type='text' class='input' id='name' name='name'
                             value=""
                             placeholder=" " />
-                        <label htmlFor='user_name' class='label'>Name</label>
+                        <label htmlFor='name' class='label'>Name</label>
                     </div>
                     <div class="field">
-                        <input type='email' class='input' id='user_email' name='user_email'
+                        <input type='email' class='input' id='email' name='email'
                             value=""
                             placeholder=" " />
                         <label htmlFor='email' class='label'>Email</label>
@@ -410,7 +411,7 @@
                             placeholder=" "></textarea>
                         <label htmlFor='message' class='label'>Message</label>
                     </div>
-                    <input class='send button' type='submit' value='Send'/>
+                    <input id='send-button' type='submit' value='Send' disabled/>
                 </form>
             </fieldset>
             <div class='media-links'>

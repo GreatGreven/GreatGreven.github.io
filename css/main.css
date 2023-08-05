@@ -402,7 +402,7 @@ button:focus::after{
     width: 100%;
     padding: 0.25rem 0;
     background: transparent;
-    color: white;
+    color: var(--text-primary);
     font-size: 1.2em;
     font-weight: bold;
     transition: border 500ms;

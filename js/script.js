@@ -55,7 +55,7 @@ window.addEventListener("load", () => {
   .then(res => res.json())
   .then(data => {
     portfolio = document.getElementById("portfolio")
-    data.map((repo, i) => {
+    data.forEach((repo) => {
       title = document.createElement('h3')
       titleText = document.createTextNode(repo.name)
       title.className += 'break-word'
@@ -87,15 +87,99 @@ window.addEventListener("load", () => {
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry)
         if (entry.isIntersecting) {
             entry.target.classList.add('show')
         } else {
             entry.target.classList.remove('show')
         }
     })
-})
+});
 
 const hiddenElements = document.querySelectorAll('.hidden')
 hiddenElements.forEach(element => observer.observe(element))
+
+const sendButton = document.querySelector('#contact #send-button');
+const contactFormFeedbackBanner = document.querySelector('#contact #feedback');
+const contactFormInput = document.querySelectorAll('#contact .input');
+contactFormInput.forEach(inputNode => {
+  inputNode.addEventListener('change', event => updateForm(event));
+  inputNode.addEventListener('focusout', event => updateForm(event));
+})
+
+function updateForm(event) {
+  setContactFormFeedback('', '');
+  updateSendButton(event)
+}
+
+function updateSendButton(event) {
+  if (!isInputNodeValid(event.target)) {
+    sendButton.disabled = true;
+  } else if (isContactFormValid()) {
+    console.log('all good, enable send button')
+    sendButton.disabled = false;
+  } else {
+    console.log("validation error")
+  }
+}
+
+function setContactFormFeedback(message, status) {
+  contactFormFeedbackBanner.classList = [ status ]
+  contactFormFeedbackBanner.innerText = message
+}
+
+const EMAIL_REGEX = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+
+function isContactFormValid() {
+  let isValid = true
+  for (let node of contactFormInput.values()) {
+    isValid = isInputNodeValid(node)
+    console.log(node.name + ': ' + isValid)
+  }
+  return isValid
+}
+
+function isInputNodeValid(node) {
+  if (!node.value) {
+    setContactFormFeedback('Please enter your ' + node.name, 'Error')
+    return false
+  }
+  if (node.type == 'email' && !node.value.match(EMAIL_REGEX)) {
+    setContactFormFeedback('Please enter a valid email' , 'Error')
+    return false
+  }
+  return true
+}
+
+
+function isContactFormReset() {
+  for (let node in contactFormInput.values()) {
+    if (node.value) {
+      return false
+    }
+  }
+  return true
+}
+
+function assembleFormValues() {
+  return {}
+}
+
+const contactForm = document.querySelector('#contact form')
+contactForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+  if (isContactFormValid()) {
+    let templateParameters = assembleFormValues();
+    console.log('Sending email', templateParameters);
+    emailjs.send(
+        process.env.EMAILJS_SERVICE_ID,
+        process.env.EMAILJS_TEMPLATE_ID,
+        templateParameters,
+        process.env.EMAILJS_PUB_KEY)
+    .then(response => {
+       console.log('SUCCESS!', response.status, response.text);
+    }, error => {
+       console.log('FAILED...', error);
+    });
+  }
+})
 
