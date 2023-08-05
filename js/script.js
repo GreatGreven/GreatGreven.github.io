@@ -64,7 +64,7 @@ window.addEventListener("load", () => {
       repoLink = document.createElement('a')
       linkText = document.createTextNode("Read more")
       repoLink.appendChild(linkText)
-      repoLink.href = repo.link
+      repoLink.href = repo.html_url
       repoLink.target = '_blank'
       repoLink.rel = 'noopener noreferrer'
 
