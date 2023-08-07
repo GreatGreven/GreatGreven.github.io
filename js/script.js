@@ -113,43 +113,56 @@ function updateForm(event) {
 
 function updateSendButton(event) {
   if (!isInputNodeValid(event.target)) {
+    setContactFormFeedback()
     sendButton.disabled = true;
   } else if (isContactFormValid()) {
-    console.log('all good, enable send button')
     sendButton.disabled = false;
   } else {
-    console.log("validation error")
+    setContactFormFeedback()
   }
 }
 
-function setContactFormFeedback(message, status) {
-  contactFormFeedbackBanner.classList = [ status ]
+function setContactFormFeedback() {
+  let [message, statusClass] = findFirstContactFormFeedback()
+  setFeedback(message, statusClass)
+}
+
+function findFirstContactFormFeedback() {
+  for (let node of contactFormInput.values()) {
+    if (!isInputNodeValid(node)) {
+      return [ 'Please enter your ' + node.name, 'ERROR' ];
+    };
+    if (node.type == 'email' && !isValidEmailInInputNode(node)) {
+      return [ 'Please enter a valid email', 'ERROR'];
+    };
+  };
+  return [ '', '' ]
+}
+
+function setFeedback(message, statusClass) {
+  contactFormFeedbackBanner.classList = [ statusClass ]
   contactFormFeedbackBanner.innerText = message
 }
 
 const EMAIL_REGEX = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
 function isContactFormValid() {
-  let isValid = true
-  for (let node of contactFormInput.values()) {
-    isValid = isInputNodeValid(node)
-    console.log(node.name + ': ' + isValid)
-  }
+  let nodes = Array.from(contactFormInput.values())
+  let isValid = nodes.every((node) => { 
+    let validity = isInputNodeValid(node) && (node.type == 'email' ? isValidEmailInInputNode(node) : true)
+    return validity
+  }) 
+  console.log('all is valid = ' + isValid)
   return isValid
 }
 
 function isInputNodeValid(node) {
-  if (!node.value) {
-    setContactFormFeedback('Please enter your ' + node.name, 'Error')
-    return false
-  }
-  if (node.type == 'email' && !node.value.match(EMAIL_REGEX)) {
-    setContactFormFeedback('Please enter a valid email' , 'Error')
-    return false
-  }
-  return true
+  return Boolean(node.value) 
 }
 
+function isValidEmailInInputNode(node){
+  return Boolean(node.value.match(EMAIL_REGEX))
+}
 
 function isContactFormReset() {
   for (let node in contactFormInput.values()) {
@@ -161,7 +174,11 @@ function isContactFormReset() {
 }
 
 function assembleFormValues() {
-  return {}
+  let values = {};
+  for ( let node of contactFormInput.values()) {
+    values[node.id] = node.value
+  }
+  return values
 }
 
 const contactForm = document.querySelector('#contact form')
@@ -171,15 +188,19 @@ contactForm.addEventListener('submit', (event) => {
     let templateParameters = assembleFormValues();
     console.log('Sending email', templateParameters);
     emailjs.send(
-        process.env.EMAILJS_SERVICE_ID,
-        process.env.EMAILJS_TEMPLATE_ID,
+        'service_ba9woqk',
+        'template_rail0ba',
         templateParameters,
-        process.env.EMAILJS_PUB_KEY)
+        'yxbay7TPzfzUivDQX')
     .then(response => {
        console.log('SUCCESS!', response.status, response.text);
+       setFeedback('Your message was sent!', 'OK')
     }, error => {
        console.log('FAILED...', error);
+       setFeedback('Failed sending message.', 'ERROR')
     });
+  } else {
+    setContactFormFeedback()
   }
 })
 

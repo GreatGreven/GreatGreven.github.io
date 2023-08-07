@@ -335,10 +335,12 @@ button:focus::after{
 
 .ERROR {
     background-color: orangered;
+    color: white;
 }
 
 .OK {
     background-color: yellowgreen;
+    color: white;
 }
 
 #contact {
